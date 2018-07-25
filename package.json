@@ -1,0 +1,23 @@
+{
+	"name": "insta2",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {
+		"express": "latest",
+		"mongoose": "latest"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/markon1/insta.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/markon1/insta/issues"
+	},
+	"homepage": "https://github.com/markon1/insta#readme"
+}
