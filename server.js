@@ -13,6 +13,8 @@ var port = process.env.PORT || 8080;
 mongoose.connect(configDB.url);
 // log every request to the console
 app.use(morgan("dev"));
+// use bodyParser
+app.use(bodyParser());
 // set route
 require("./app/routes/follows.js")(app);
 
