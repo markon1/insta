@@ -26,6 +26,7 @@ module.exports = function(app) {
 			});
 		})
 		.post((req, res) => {
+			console.log(req.body);
 			let foll = new Follow(req.body);
 
 			Follow.findOne({ handle: foll.handle, brand: foll.brand }).exec(function(err, foundFollow) {
