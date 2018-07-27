@@ -3,7 +3,7 @@ var express = require("express");
 var mongoose = require("mongoose");
 var morgan = require("morgan");
 var bodyParser = require("body-parser");
-var configDB = require("./config/database.js");
+var configDB = require("./app/config/database.js");
 
 // init express
 var app = express();
