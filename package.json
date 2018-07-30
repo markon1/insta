@@ -11,7 +11,8 @@
 		"express": "latest",
 		"mongoose": "latest",
 		"morgan": "latest",
-		"body-parser": "latest"
+		"body-parser": "latest",
+		"ejs": "latest"
 	},
 	"repository": {
 		"type": "git",

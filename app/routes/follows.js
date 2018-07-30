@@ -12,6 +12,12 @@ module.exports = function(app) {
 		});
 	});
 
+	app.route("/allFollows").get((req, res) => {
+		Follow.find({}).exec(function(err, follows) {
+			res.render("allFollows.ejs", { follows: follows });
+		});
+	});
+
 	app.route("/follows")
 		.get((req, res) => {
 			let query = {};

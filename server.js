@@ -15,6 +15,8 @@ mongoose.connect(configDB.url);
 app.use(morgan("dev"));
 // use bodyParser
 app.use(bodyParser());
+// set up ejs for templating
+app.set("view engine", "ejs");
 // set route
 require("./app/routes/follows.js")(app);
 

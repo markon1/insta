@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>All Follows</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>Brand</th>
+            <th>Instagram Profile</th>
+        </tr>
+        <% follows.forEach(function(f){ %>
+            <tr>
+                <td>
+                    <%= f.brand %>
+                </td>
+                <td>
+                    <%= f.handle %>
+                </td>
+            </tr>
+            <% }) %>
+    </table>
+</body>
+
+</html>
