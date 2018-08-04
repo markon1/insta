@@ -12,7 +12,8 @@
 		"mongoose": "latest",
 		"morgan": "latest",
 		"body-parser": "latest",
-		"ejs": "latest"
+		"ejs": "latest",
+		"json2csv": "latest"
 	},
 	"repository": {
 		"type": "git",
