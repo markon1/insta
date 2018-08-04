@@ -19,6 +19,7 @@ app.use(bodyParser());
 app.set("view engine", "ejs");
 // set route
 require("./app/routes/follows.js")(app);
+require("./app/routes/csv.js")(app);
 
 app.listen(port);
 console.log("The magic happens on port " + port);
