@@ -1,12 +1,14 @@
 var mongoose = require("mongoose");
-var json2csv = require("json2csv").parse;
+const Json2csvParser = require("json2csv").Parser;
 var Follow = require("../models/follow");
+const fields = ["brand", "handle"];
 
 module.exports = function(app) {
 	app.get("/csv", (req, res) => {
 		Follow.find({}).exec(function(err, follows) {
 			res.attachment("stats.csv");
-			res.status(200).send(json2csv(follows));
+			const json2csvParser = new Json2csvParser({ fields });
+			res.status(200).send(json2csvParser.parse(follows));
 		});
 	});
 };
