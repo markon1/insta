@@ -39,7 +39,7 @@ module.exports = function(app) {
 					foll.save();
 					res.json(foll);
 				} else {
-					res.status("409").end({ error: "User with handle: " + foll.handle + " already exists in brand: " + foll.brand + " database." });
+					res.status("409").json({ error: "User with handle: " + foll.handle + " already exists in brand: " + foll.brand + " database." });
 				}
 			});
 		});

@@ -6,9 +6,13 @@ const fields = ["brand", "handle"];
 module.exports = function(app) {
 	app.get("/csv", (req, res) => {
 		Follow.find({}).exec(function(err, follows) {
-			res.attachment("stats.csv");
-			const json2csvParser = new Json2csvParser({ fields });
-			res.status(200).send(json2csvParser.parse(follows));
+			if (err) {
+				res.status(500).send(err);
+			} else {
+				res.attachment("stats.csv");
+				const json2csvParser = new Json2csvParser({ fields });
+				res.status(200).send(json2csvParser.parse(follows));
+			}
 		});
 	});
 };
