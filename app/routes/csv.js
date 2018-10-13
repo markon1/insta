@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 const Json2csvParser = require("json2csv").Parser;
 var Follow = require("../models/follow");
-const fields = ["brand", "handle"];
+const fields = ["brand", "handle", "title", "followDateTime", "posts", "followers", "following", "description", "link", "isPrivate"];
 
 module.exports = function(app) {
 	app.get("/csv", (req, res) => {

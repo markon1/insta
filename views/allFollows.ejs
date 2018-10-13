@@ -26,15 +26,39 @@
             <th>Instagram Profile</th>
         </tr>
         <% follows.forEach(function(f){ %>
-            <tr>
-                <td>
-                    <%= f.brand %>
-                </td>
-                <td>
-                    <%= f.handle %>
-                </td>
-            </tr>
-            <% }) %>
+        <tr>
+            <td>
+                <%= f.brand %>
+            </td>
+            <td>
+                <%= f.handle %>
+            </td>
+            <td>
+                <%= f.followDateTime || "" %>
+            </td>
+            <td>
+                <%= f.posts || "" %>
+            </td>
+            <td>
+                <%= f.followers || "" %>
+            </td>
+            <td>
+                <%= f.following || "" %>
+            </td>
+            <td>
+                <%= f.title || "" %>
+            </td>
+            <td>
+                <%= f.description || "" %>
+            </td>
+            <td>
+                <%= f.link || "" %>
+            </td>
+            <td>
+                <%= f.isPrivate || "" %>
+            </td>
+        </tr>
+        <% }) %>
     </table>
 </body>
 

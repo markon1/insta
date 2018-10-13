@@ -5,7 +5,15 @@ var mongoose = require("mongoose");
 var followSchema = mongoose.Schema(
 	{
 		handle: String,
-		brand: String
+		brand: String,
+		title: { type: String, default: "" },
+		followDateTime: { type: String, default: "" },
+		posts: { type: String, default: "" },
+		followers: { type: String, default: "" },
+		following: { type: String, default: "" },
+		description: { type: String, default: "" },
+		link: { type: String, default: "" },
+		isPrivate: { type: String, default: "" }
 	},
 	{ versionKey: false }
 );
