@@ -24,6 +24,14 @@
         <tr>
             <th>Brand</th>
             <th>Instagram Profile</th>
+            <th>Title</th>
+            <th>Follow Date & Time</th>
+            <th>Posts</th>
+            <th>Followers</th>
+            <th>Following</th>
+            <th>Description</th>
+            <th>Link</th>
+            <th>Is Private?</th>
         </tr>
         <% follows.forEach(function(f){ %>
         <tr>
@@ -32,6 +40,9 @@
             </td>
             <td>
                 <%= f.handle %>
+            </td>
+            <td>
+                <%= f.title || "" %>
             </td>
             <td>
                 <%= f.followDateTime || "" %>
@@ -44,9 +55,6 @@
             </td>
             <td>
                 <%= f.following || "" %>
-            </td>
-            <td>
-                <%= f.title || "" %>
             </td>
             <td>
                 <%= f.description || "" %>
