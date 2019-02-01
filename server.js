@@ -21,5 +21,7 @@ app.set("view engine", "ejs");
 require("./app/routes/follows.js")(app);
 require("./app/routes/csv.js")(app);
 
-app.listen(port);
+let server = app.listen(port);
+server.timeout = 60000;
+
 console.log("The magic happens on port " + port);
