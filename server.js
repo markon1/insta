@@ -20,6 +20,8 @@ app.set("view engine", "ejs");
 // set route
 require("./app/routes/follows.js")(app);
 require("./app/routes/csv.js")(app);
+//set public dir
+app.use(express.static('public'));
 
 let server = app.listen(port);
 server.timeout = 60000;
