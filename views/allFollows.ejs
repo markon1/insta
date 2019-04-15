@@ -6,7 +6,23 @@
 </head>
 
 <body>
-    <a href='/csv'>Get CSV</a>
+     From <input type="datetime-local" id="from">
+     To  <input type="datetime-local" id="to">
+
+    <button id='getCSV'>Get CSV</a>
+
+    <script>
+        document.querySelector("#getCSV").addEventListener('click', function(){
+            let from = document.querySelector("#from").value;
+            let to = document.querySelector("#to").value;
+
+            if(from && to){
+                document.location.href = `https://kgrowapp.herokuapp.com/csv?from=${from}&to=${to}`;
+            } else {
+                alert("Please select timespan");
+            }
+        });
+    </script>
 </body>
 
 </html>
