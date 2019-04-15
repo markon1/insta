@@ -8,8 +8,8 @@ const fields = ["brand", "handle", "title", "followDateTime", "posts", "follower
 module.exports = function(app) {
 	app.get("/csv", (req, res) => {
 		if (req.query.from && req.query.to) {
-			let objIdMin = ObjectId(Math.floor(new Date(req.query.from) / 1000).toString(16) + "0000000000000000");
-			let objIdMax = ObjectId(Math.floor(new Date(req.query.to) / 1000).toString(16) + "0000000000000000");
+			let objIdMin = mongoose.Types.ObjectId(Math.floor(new Date(req.query.from) / 1000).toString(16) + "0000000000000000");
+			let objIdMax = mongoose.Types.ObjectId(Math.floor(new Date(req.query.to) / 1000).toString(16) + "0000000000000000");
 
 			Follow.find({ _id: { $gt: objIdMin, $lt: objIdMax } }).exec(function(err, follows) {
 				if (err) {
