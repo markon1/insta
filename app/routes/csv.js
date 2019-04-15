@@ -7,7 +7,7 @@ const fields = ["brand", "handle", "title", "followDateTime", "posts", "follower
 
 module.exports = function(app) {
 	app.get("/csv", (req, res) => {
-		console.log(req.params);
+		console.log(req.query);
 		//let objIdMin = ObjectId(Math.floor((new Date('1990/10/10'))/1000).toString(16) + "0000000000000000");
 		//let objIdMax = ObjectId(Math.floor((new Date('2011/10/22'))/1000).toString(16) + "0000000000000000");
 		//db.myCollection.find({_id:{$gt: objIdMin, $lt: objIdMax}})
