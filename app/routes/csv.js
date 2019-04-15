@@ -7,35 +7,36 @@ const fields = ["brand", "handle", "title", "followDateTime", "posts", "follower
 
 module.exports = function(app) {
 	app.get("/csv", (req, res) => {
-		console.log(req.query);
-		//let objIdMin = ObjectId(Math.floor((new Date('1990/10/10'))/1000).toString(16) + "0000000000000000");
-		//let objIdMax = ObjectId(Math.floor((new Date('2011/10/22'))/1000).toString(16) + "0000000000000000");
-		//db.myCollection.find({_id:{$gt: objIdMin, $lt: objIdMax}})
-		Follow.find({}).exec(function(err, follows) {
-			if (err) {
-				res.status(500).send(err);
-			} else {
-				let csv;
-				try {
-					const json2csvParser = new Json2csvParser({ fields });
-					csv = json2csvParser.parse(follows);
-				} catch (err) {
-					return res.status(500).json({ err });
-				}
-				const dateTime = Date.now();
-				const filePath = path.join(__dirname, "..", "public", "exports", "csv-" + dateTime + ".csv");
+		if (req.query.from && req.query.to) {
+			let objIdMin = ObjectId(Math.floor(new Date(req.query.from) / 1000).toString(16) + "0000000000000000");
+			let objIdMax = ObjectId(Math.floor(new Date(req.query.to) / 1000).toString(16) + "0000000000000000");
 
-				fs.writeFile(filePath, csv, function(err) {
-					if (err) {
-						return res.json(err).status(500);
-					} else {
-						setTimeout(function() {
-							fs.unlinkSync(filePath); // delete this file after 30 seconds
-						}, 30000);
-						return res.json("/exports/csv-" + dateTime + ".csv");
+			Follow.find({ _id: { $gt: objIdMin, $lt: objIdMax } }).exec(function(err, follows) {
+				if (err) {
+					res.status(500).send(err);
+				} else {
+					let csv;
+					try {
+						const json2csvParser = new Json2csvParser({ fields });
+						csv = json2csvParser.parse(follows);
+					} catch (err) {
+						return res.status(500).json({ err });
 					}
-				});
-			}
-		});
+					const dateTime = Date.now();
+					const filePath = path.join(__dirname, "..", "public", "exports", "csv-" + dateTime + ".csv");
+
+					fs.writeFile(filePath, csv, function(err) {
+						if (err) {
+							return res.json(err).status(500);
+						} else {
+							setTimeout(function() {
+								fs.unlinkSync(filePath); // delete this file after 30 seconds
+							}, 30000);
+							return res.json("/exports/csv-" + dateTime + ".csv");
+						}
+					});
+				}
+			});
+		}
 	});
 };
