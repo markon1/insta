@@ -19,7 +19,7 @@ module.exports = function(app) {
 	app.route("/follows")
 		.post((req, res) => {
 			let foll = new Follow(req.body);
-
+			console.log(foll);
 			Follow.findOne({ handle: foll.handle, brand: foll.brand }).exec(function(err, foundFollow) {
 				if (!foundFollow) {
 					foll.save();
