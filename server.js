@@ -10,7 +10,7 @@ var app = express();
 // set the port of app
 var port = process.env.PORT || 8080;
 // connect to our database
-mongoose.connect(configDB.url);
+mongoose.connect(configDB.url,{ useUnifiedTopology: true });
 
 // log every request to the console
 app.use(morgan("dev"));
