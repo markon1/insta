@@ -8,12 +8,12 @@
 		"start": "node server.js"
 	},
 	"dependencies": {
-		"express": "latest",
-		"mongoose": "latest",
-		"morgan": "latest",
-		"body-parser": "latest",
-		"ejs": "latest",
-		"json2csv": "latest"
+		"express": "^4.17.1",
+		"mongoose": "^5.7.10",
+		"morgan": "^1.9.1",
+		"body-parser": "^1.19.0",
+		"ejs": "^2.7.1",
+		"json2csv": "^4.5.4"
 	},
 	"repository": {
 		"type": "git",
