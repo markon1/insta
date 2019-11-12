@@ -17,9 +17,20 @@ module.exports = function(app) {
 	});
 
 	app.route("/follows")
+		.get((req, res) => {
+			let query = {};
+
+			if (req.query.handle && req.query.brand) {
+				query.handle = req.query.handle;
+				query.brand = req.query.brand;
+			}
+
+			Follow.find(query).exec(function(err, follows) {
+				res.json(follows);
+			});
+		})
 		.post((req, res) => {
 			let foll = new Follow(req.body);
-			console.log(foll);
 			Follow.findOne({ handle: foll.handle, brand: foll.brand }).exec(function(err, foundFollow) {
 				if (!foundFollow) {
 					foll.save();
